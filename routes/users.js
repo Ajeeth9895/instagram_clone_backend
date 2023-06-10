@@ -186,19 +186,18 @@ router.post("/send-email", async (req, res) => {
 
     if (user) {
 
-      let firstName = user.firstName
+      let fullName = user.fullName
       let email = user.email
 
       // creating token       
-      let token = jwt.sign({ firstName, email }, process.env.SECRETE_KEY_RESET, {
+      let token = jwt.sign({ fullName, email }, process.env.SECRETE_KEY_RESET, {
         expiresIn: process.env.FORGOT_EXPIRES
       });
 
       // const setUserToken = await UserModel.findByIdAndUpdate({ _id: user._id }, { token: token });
 
       await passwordEmail({
-        firstName: user.firstName,
-        lastName: user.lastName,
+        fullName: user.fullName,
         email: user.email,
         message: `${frontUrl}/reset-password/${user._id}/${token}`
       })

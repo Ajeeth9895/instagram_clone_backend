@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 
 
-const passwordEmail = async ({ email, firstName, lastName, message }) => {
+const passwordEmail = async ({ email, fullName, message }) => {
   
 
   let mailTranspoter = nodemailer.createTransport({
@@ -23,7 +23,7 @@ const passwordEmail = async ({ email, firstName, lastName, message }) => {
     subject: "Instagram Reset password",
     html: ` <div style="background-color: antiquewhite; margin-left:25%; margin-right:25%; padding:20px;">
       <div>
-        <b>Hello ${firstName} ${lastName},</b>
+        <b>Hello ${firstName},</b>
       </div>
       <br>
       <br>
