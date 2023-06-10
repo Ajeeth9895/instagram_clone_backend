@@ -12,6 +12,9 @@ require('dotenv').config()
 //connect to DB
 mongoose.connect(dbUrl)
 
+
+let frontUrl = "https://lovely-nasturtium-66c917.netlify.app"
+
 //create post
 router.post('/createPost',validate, async (req, res) => {
   try {
@@ -197,7 +200,7 @@ router.post("/send-email", async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        message: `http://localhost:3000/reset-password/${user._id}/${token}`
+        message: `${frontUrl}/reset-password/${user._id}/${token}`
       })
 
       res.status(200).send({
