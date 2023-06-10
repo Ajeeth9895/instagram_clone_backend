@@ -23,7 +23,7 @@ const passwordEmail = async ({ email, fullName, message }) => {
     subject: "Instagram Reset password",
     html: ` <div style="background-color: antiquewhite; margin-left:25%; margin-right:25%; padding:20px;">
       <div>
-        <b>Hello ${firstName},</b>
+        <b>Hello ${fullName},</b>
       </div>
       <br>
       <br>
